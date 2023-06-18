@@ -10,3 +10,12 @@ class Post(db.Model):
         self.title = title
         self.content = content
         self.author_id = author_id
+
+    @property
+    def serialized(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'content': self.content,
+            'author_id': self.author_id
+        }

@@ -4,6 +4,7 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required
 from flask_jwt_extended import current_user
 from flask_migrate import Migrate
 from models.user import User
+from models.post import Post
 import hashlib
 
 app = Flask(__name__)

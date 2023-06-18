@@ -5,6 +5,7 @@ class User(db.Model):
     username = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(50))
     role = db.Column(db.String(50))
+    posts = db.relationship('Post', backref='author', lazy=True)
 
     def __init__(self, username, password, role):
         self.username = username

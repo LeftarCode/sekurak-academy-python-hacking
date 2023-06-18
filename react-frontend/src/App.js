@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PostPage from './pages/PostPage';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
+import SupportConfirmation from './pages/SupportConfirmation';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/post/:id" element={<PostPage />} />
+        <Route path="/support" element={<SupportConfirmation />} />
       </Routes>
     </BrowserRouter>
   );

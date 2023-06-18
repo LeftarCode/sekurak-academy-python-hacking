@@ -41,9 +41,12 @@ function Dashboard() {
             },
             body: data
         }).then(response => {
-            response.json().then(json => {
-                window.location.reload();
-            })
+            if (response.status == 200) {
+                response.json().then(json => {
+                    window.localStorage.setItem('sup_con', JSON.stringify(json));
+                    window.location.href = "/support";
+                })
+            }
         });
     };
     

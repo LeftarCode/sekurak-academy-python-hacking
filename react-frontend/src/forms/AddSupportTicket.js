@@ -24,7 +24,7 @@ function AddSupportTicket({onSubmit}) {
                     <label htmlFor="description" className="form-label">Description</label>
                     <textarea {...register("description", {"required": true})} className="form-control" id="description"/>
                 </div>
-                <button type="submit" className="btn btn-success">Send</button>
+                <button type="submit" className="btn btn-success">Next</button>
             </form>
         </div>
     );

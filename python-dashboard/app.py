@@ -45,7 +45,8 @@ def get_posts():
     username = request.args.get('username')
     posts = []
     if username != None:
-        posts = Post.query.filter_by(username=username).all()
+        user = User.query.filter_by(username=username).one_or_none()
+        posts = Post.query.filter_by(author_id=user.id).all()
     else:
         posts = Post.query.all()
     return jsonify({"posts": [post.serialized for post in posts]}), 200
@@ -78,6 +79,13 @@ def create_post():
 @jwt_required()
 def me():
     return jsonify({'username': current_user.username, 'role': current_user.role}), 200
+
+@app.route('/support', methods=['POST'])
+@jwt_required()
+def support():
+    if (current_user.role != "admin"):
+        return jsonify({'status': 'only admin'}), 403
+    return jsonify({'confirmation': 'conf'}), 200
 
 if __name__ == '__main__':
     app.run()

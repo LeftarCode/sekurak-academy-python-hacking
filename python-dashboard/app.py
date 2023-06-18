@@ -8,6 +8,7 @@ from models.user import User
 from models.post import Post
 from sqlalchemy import text
 import hashlib
+import requests
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:password@postgres/user'
@@ -85,7 +86,25 @@ def me():
 def support():
     if (current_user.role != "admin"):
         return jsonify({'status': 'only admin'}), 403
-    return jsonify({'confirmation': 'conf'}), 200
+    
+    problem = request.json.get('problem')
+    description = request.json.get('description')
+
+    res = requests.post("http://support:8080/support", data={"problem": problem, "description": description})
+
+    return jsonify({'confirmation': res.text}), 200
+
+@app.route('/support/confirm', methods=['POST'])
+@jwt_required()
+def support_confirm():
+    if (current_user.role != "admin"):
+        return jsonify({'status': 'only admin'}), 403
+    
+    confirmation = request.json.get('confirmation')
+
+    res = requests.post("http://support:8080/support/confirm", data={"confirmation": confirmation})
+
+    return jsonify({'status': res.text}), 200
 
 if __name__ == '__main__':
     app.run()

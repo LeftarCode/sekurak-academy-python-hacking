@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  support:
+    depends_on:
+      - postgres
+    build: ./spring-support
+    ports:
+      - 8080:8080
+    restart: on-failure
+
+volumes:
+  postgres_data:

@@ -28,6 +28,24 @@ function Dashboard() {
             })
         });
     };
+
+    const createSupportTicket = (data) => {
+        let jwt = window.localStorage.getItem("auth_token");
+
+        fetch("http://localhost:5000/support", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + jwt
+            },
+            body: data
+        }).then(response => {
+            response.json().then(json => {
+                window.location.reload();
+            })
+        });
+    };
     
     useEffect(() => {
         let mounted = true;
@@ -96,7 +114,7 @@ function Dashboard() {
                                 <h1 className='mt-4'>Zgłoś problem do zewnętrznego supportu</h1>
                                 <div className='container-fluid'>
                                     <div className='row'>
-                                        <AddSupportTicket onSubmit={addPost}/>
+                                        <AddSupportTicket onSubmit={createSupportTicket}/>
                                     </div>
                                 </div>
                             </>

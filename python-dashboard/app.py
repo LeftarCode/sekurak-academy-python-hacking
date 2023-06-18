@@ -10,7 +10,7 @@ from sqlalchemy import text
 import hashlib
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:password@localhost/user'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:password@postgres/user'
 app.config['JWT_SECRET_KEY'] = 'secret_key'
 
 db.init_app(app)

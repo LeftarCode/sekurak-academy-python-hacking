@@ -23,7 +23,7 @@ function Login() {
             } else {
                 response.json().then(json => {
                     window.localStorage.setItem("auth_token", json.access_token);
-                    window.location.href="/dashboard";
+                    window.location.href="/#/dashboard";
                 })
             }
         });

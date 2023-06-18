@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import Home from './pages/Home'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import PostPage from './pages/PostPage';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
@@ -10,7 +10,7 @@ import SupportConfirmation from './pages/SupportConfirmation';
 function App() {
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
@@ -18,7 +18,7 @@ function App() {
         <Route path="/post/:id" element={<PostPage />} />
         <Route path="/support" element={<SupportConfirmation />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

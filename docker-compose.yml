@@ -12,9 +12,21 @@ services:
     depends_on:
       - postgres
     build: ./spring-support
-    ports:
-      - 8080:8080
     restart: on-failure
+  app:
+    build: ./python-dashboard
+    restart: always
+    depends_on:
+      - postgres
+      - support
+    ports:
+      - "5000:5000"
+  frontend:
+    image: httpd:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./react-frontend/build:/usr/local/apache2/htdocs
 
 volumes:
   postgres_data:

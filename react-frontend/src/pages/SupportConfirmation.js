@@ -24,7 +24,7 @@ function SupportConfirmation() {
             body: data
         }).then(response => {
             if (response.status == 200) {
-                window.location.href = "/dashboard";
+                window.location.href = "/#/dashboard";
             }
         });
     };
@@ -34,7 +34,7 @@ function SupportConfirmation() {
 
         let jwt = window.localStorage.getItem("auth_token");
         if (jwt == undefined || jwt == "") {
-            window.location.href = "/login";
+            window.location.href = "/#/login";
         }
 
         fetch("http://localhost:5000/me", {
@@ -44,7 +44,7 @@ function SupportConfirmation() {
         })
         .then(response => {
             if (response.status != 200) {
-                window.location.href = "/login";
+                window.location.href = "/#/login";
             }
             return response.json()
         })

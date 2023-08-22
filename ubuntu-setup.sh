@@ -21,9 +21,11 @@ apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
 
 git clone https://github.com/LeftarCode/sekurak-academy-python-hacking.git
-chown $SUDO_USER:$SUDO_USER sekurak-academy-python-hacking
+chown -R $SUDO_USER:$SUDO_USER sekurak-academy-python-hacking
 
 cd ./sekurak-academy-python-hacking
+chmod +x run.sh
+
 cd ./react-frontend
 
 npm install

@@ -14,7 +14,7 @@ function Dashboard() {
     const addPost = (data) => {
         let jwt = window.localStorage.getItem("auth_token");
 
-        fetch("http://localhost:5000/post", {
+        fetch("http://target.lab:5000/post", {
             method: "POST",
             mode: "cors",
             headers: {
@@ -32,7 +32,7 @@ function Dashboard() {
     const createSupportTicket = (data) => {
         let jwt = window.localStorage.getItem("auth_token");
 
-        fetch("http://localhost:5000/support", {
+        fetch("http://target.lab:5000/support", {
             method: "POST",
             mode: "cors",
             headers: {
@@ -63,7 +63,7 @@ function Dashboard() {
             window.location.href = "/#/login";
         }
 
-        fetch("http://localhost:5000/me", {
+        fetch("http://target.lab:5000/me", {
             headers: {
                 "Authorization": "Bearer " + jwt
             }
@@ -79,7 +79,7 @@ function Dashboard() {
             setIsLogged(true);
             
 
-            fetch("http://localhost:5000/posts?username="+response.username)
+            fetch("http://target.lab:5000/posts?username="+response.username)
             .then(response => response.json())
             .then(response => {
                 setPosts(response.posts);

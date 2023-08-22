@@ -14,7 +14,7 @@ function SupportConfirmation() {
     const confirmTicket = (data) => {
         let jwt = window.localStorage.getItem("auth_token");
 
-        fetch("http://localhost:5000/support/confirm", {
+        fetch("http://target.lab:5000/support/confirm", {
             method: "POST",
             mode: "cors",
             headers: {
@@ -37,7 +37,7 @@ function SupportConfirmation() {
             window.location.href = "/#/login";
         }
 
-        fetch("http://localhost:5000/me", {
+        fetch("http://target.lab:5000/me", {
             headers: {
                 "Authorization": "Bearer " + jwt
             }

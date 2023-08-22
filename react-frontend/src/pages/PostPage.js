@@ -10,7 +10,7 @@ function PostPage() {
   
     useEffect(() => {
         let mounted = true;
-        fetch("http://localhost:5000/post?id="+id)
+        fetch("http://target.lab:5000/post?id="+id)
         .then(response => response.json())
         .then(response => {
             setPost(response.post);

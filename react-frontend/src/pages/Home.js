@@ -7,7 +7,7 @@ function Home() {
   
     useEffect(() => {
      let mounted = true;
-     fetch("http://localhost:5000/posts")
+     fetch("http://target.lab:5000/posts")
      .then(response => response.json())
      .then(response => setPosts(response.posts))
      return () => mounted = false;

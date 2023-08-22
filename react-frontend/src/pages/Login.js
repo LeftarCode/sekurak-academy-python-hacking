@@ -8,7 +8,7 @@ function Login() {
     const {register, handleSubmit} = useForm();
 
     const sendLoginRequest = (data) => {
-        fetch("http://localhost:5000/login", {
+        fetch("http://target.lab:5000/login", {
             method: "POST",
             mode: "cors",
             headers: {

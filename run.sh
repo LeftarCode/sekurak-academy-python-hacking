@@ -5,6 +5,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 git stash && git pull
+chown -R $SUDO_USER:$SUDO_USER .
 
 cd react-frontend
 

@@ -5,7 +5,12 @@ if [ "$EUID" -ne 0 ]
 fi
 
 apt-get update -y
-apt-get install -y git npm ca-certificates curl gnupg
+apt-get install -y git npm ca-certificates curl gnupg nano iputils-ping ufw
+
+ufw enable
+ufw allow 8080/tcp
+ufw allow 5000/tcp
+ufw reload
 
 apt install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg

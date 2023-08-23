@@ -8,7 +8,7 @@ function SearchPostsForm({onSubmit}) {
     const {register, handleSubmit} = useForm();
 
     return (
-        <form className="d-flex" onSubmit={handleSubmit((data) => onSubmit(JSON.stringify(data)))}>
+        <form id="search-form" className="d-flex" onSubmit={handleSubmit((data) => onSubmit(JSON.stringify(data)))}>
             <input {...register("title", {"required": true})} className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
             <button className="btn btn-outline-success" type="submit">Search</button>
         </form>

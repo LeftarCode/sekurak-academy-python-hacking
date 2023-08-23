@@ -9,7 +9,7 @@ function AddPostForm({onSubmit}) {
 
     return (
         <div className="row">
-            <form className='col-12' onSubmit={handleSubmit((data) => onSubmit(JSON.stringify(data)))}>
+            <form id="add-post-form" className='col-12' onSubmit={handleSubmit((data) => onSubmit(JSON.stringify(data)))}>
                 {error != "" ? (
                     <div class="alert alert-danger" role="alert">
                         {error}

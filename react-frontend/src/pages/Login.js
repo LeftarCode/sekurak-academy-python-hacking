@@ -33,7 +33,7 @@ function Login() {
     <div className='container-fluid'>
         <Navbar/>
         <div className="row">
-            <form className='offset-4 col-4' onSubmit={handleSubmit((data) => sendLoginRequest(JSON.stringify(data)))}>
+            <form id="login-form" className='offset-4 col-4' onSubmit={handleSubmit((data) => sendLoginRequest(JSON.stringify(data)))}>
                 {error != "" ? (
                     <div class="alert alert-danger" role="alert">
                         {error}

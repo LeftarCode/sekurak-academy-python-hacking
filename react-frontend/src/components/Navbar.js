@@ -28,24 +28,24 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                    <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
-                        Home
-                    </NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to="/dashboard" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
-                        Dashboard
-                    </NavLink>
-                </li>
-            </ul>
-            <SearchPostsForm onSubmit={searchPosts}/>
-            {error != "" ? (
-                <div class="alert alert-danger" role="alert">
-                    {error}
-                </div>
-            ) : (<></>)}
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li className="nav-item">
+                        <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+                            Home
+                        </NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to="/dashboard" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+                            Dashboard
+                        </NavLink>
+                    </li>
+                </ul>
+                <SearchPostsForm onSubmit={searchPosts}/>
+                {error != "" ? (
+                    <div class="alert alert-danger" role="alert">
+                        {error}
+                    </div>
+                ) : (<></>)}
             </div>
         </div>
     </nav>

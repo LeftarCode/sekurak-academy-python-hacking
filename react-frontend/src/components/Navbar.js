@@ -1,6 +1,23 @@
 import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import SearchPostsForm from "../forms/SearchPostsForm";
 
 function Navbar() {  
+    const [error, setError] = useState("");
+    const searchPosts = (data) => {
+        var json = JSON.parse(data)
+        fetch(`http://target.lab:5000/posts_by_title?title=${json.title}`).then(response => {
+            console.log(response);
+            if (response.status != 200) {
+                response.json().then(json => {
+                    setError("SQL Error")
+                })
+            } else {
+                setError("")
+            }
+        });
+    };
+
     return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
@@ -23,6 +40,12 @@ function Navbar() {
                     </NavLink>
                 </li>
             </ul>
+            <SearchPostsForm onSubmit={searchPosts}/>
+            {error != "" ? (
+                <div class="alert alert-danger" role="alert">
+                    {error}
+                </div>
+            ) : (<></>)}
             </div>
         </div>
     </nav>

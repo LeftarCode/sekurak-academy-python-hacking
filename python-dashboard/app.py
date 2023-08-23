@@ -9,6 +9,7 @@ from models.post import Post
 from sqlalchemy import text
 import hashlib
 import requests
+import psycopg2
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:password@postgres/user'
@@ -51,6 +52,21 @@ def get_posts():
     else:
         posts = Post.query.all()
     return jsonify({"posts": [post.serialized for post in posts]}), 200
+
+@app.route('/posts_by_title', methods=['GET'])
+def get_posts_by_title():
+    title = request.args.get('title')
+    posts = []
+
+    sql = text(f"""SELECT * FROM "post" WHERE title='{title}'""")
+    try:
+        result = db.session.execute(sql)
+    except:
+        return jsonify({"error": "SQL Error"}), 500
+
+    print(result)
+
+    return jsonify({"posts": []}), 200
 
 @app.route('/post', methods=['GET'])
 def get_post():

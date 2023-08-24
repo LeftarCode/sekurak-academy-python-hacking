@@ -1,13 +1,18 @@
 package pl.securitum.deserialization.DamnVulnerableSpring;
 
+import org.apache.commons.collections.Factory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.apache.commons.collections.list.LazyList;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Date;
+import java.util.List;
 
 @SpringBootApplication
 @RestController
@@ -15,6 +20,16 @@ public class DamnVulnerableSpringApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DamnVulnerableSpringApplication.class, args);
+
+		Factory factory = new Factory() {
+			public Object create() {
+				return new Date();
+			}
+		};
+
+		List lazy = LazyList.decorate(new ArrayList(), factory);
+		Object obj = lazy.get(3);
+		System.out.println(obj);
 	}
 
 	@PostMapping({"/support"})

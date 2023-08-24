@@ -9,6 +9,7 @@ apt-get install -y git npm ca-certificates curl gnupg nano iputils-ping ufw
 
 ufw enable
 ufw allow 8080/tcp
+ufw allow 80/tcp
 ufw allow 5000/tcp
 ufw reload
 

@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:15-jdk-alpine
 WORKDIR /tmp
 
 COPY . .

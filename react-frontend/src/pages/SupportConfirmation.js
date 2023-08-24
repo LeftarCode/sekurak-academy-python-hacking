@@ -72,6 +72,7 @@ function SupportConfirmation() {
                         <code>
                             {supportConfirmation}
                         </code>
+                        <button className='btn btn-success' onClick={confirmTicket}>Potwierdz</button>
                     </>
                 )}
             </div>

@@ -24,7 +24,7 @@ services:
   frontend:
     image: httpd:latest
     ports:
-      - "8080:80"
+      - "80"
     volumes:
       - ./react-frontend/build:/usr/local/apache2/htdocs
 

@@ -1,6 +1,6 @@
-FROM eclipse-temurin:11.0.15_10-jdk-alpine
+FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /tmp
 
 COPY . .
 
-ENTRYPOINT ["java","-jar","out/artifacts/DamnVulnerableSpring_jar/DamnVulnerableSpring.jar"]
+ENTRYPOINT ["java","-Djdk.serialFilter=*","-jar","out/artifacts/DamnVulnerableSpring_jar/DamnVulnerableSpring.jar"]

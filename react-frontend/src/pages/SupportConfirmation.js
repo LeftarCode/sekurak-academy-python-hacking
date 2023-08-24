@@ -21,7 +21,7 @@ function SupportConfirmation() {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + jwt
             },
-            body: JSON.stringify({"confirmation": "supportConfirmation"})
+            body: JSON.stringify({"confirmation": supportConfirmation})
         }).then(response => {
             if (response.status == 200) {
                 window.location.href = "/#/dashboard";

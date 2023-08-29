@@ -6,4 +6,5 @@ fi
 
 sudo -u kali pip3 install requests Selenium PyCryptoDome pyDes Scapy
 
+apt update
 apt install -y jupyter-notebook code-oss

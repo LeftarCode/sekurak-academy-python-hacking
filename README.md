@@ -1,6 +1,9 @@
 # Czy Pythonem można hackować wszystko?
 Repozytorium to zawiera niezbędny kod potrzebny do aktywnego uczestnictwa w szkoleniu organizowanym w ramach [Sekurak Academy](https://sekurak.academy/). Oprócz tego repozytorium zawiera kod, wraz z komentarzami i niezbędnymi notatki, który został napisany w trakcie samego szkolenia.
 
+Specjalnie dla uczestników szkolenia został przygotowany kod rabatowy na nadchodzącą książkę od Sekuraka :)
+![python-preorder](./exploits/jupyter/1_WdbIT.png)
+
 ## Konfiguracja środowiska
 A tej sekcji znajduje się krótka opisowa instrukcja w jaki sposób należy skonfigurować sobie środowisko, aby móc przetestować napisane exploity. W trakie szkolenie używaliśmy VirtualBox, ale jeżeli preferujesz alternatywne rozwiązanie to nic nie stoi na przeszkodzie.
 ### Ubuntu
